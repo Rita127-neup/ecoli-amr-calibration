@@ -1,0 +1,18 @@
+UK training n=2574 (expect 2574) | South Asia n=238 (expect 238) | Norway n=3153 (expect 3153)
+
+South Asia by BioProject (size, resistant, share resistant):
+                      size  sum   mean
+BioProject Accession                  
+PRJNA522294             85   67  0.788
+PRJEB2827               58    8  0.138
+NaN                     56   49  0.875
+PRJNA925003             35   35  1.000
+PRJEB2226                4    0  0.000
+
+Paper values to match: Norway slope 0.726 / intercept -0.488; South Asia slope 0.786 / intercept 0.927
+
+Norway (full)                      n=3153 resistant= 311 prev=0.099 meanP=0.102 AUROC=0.968 slope=0.726 intercept=-0.488 Brier=0.0206
+South Asia (full)                  n= 238 resistant= 159 prev=0.668 meanP=0.633 AUROC=0.970 slope=0.786 intercept=0.927 Brier=0.0399
+South Asia excl. PRJNA925003       n= 203 resistant= 124 prev=0.611 meanP=0.588 AUROC=0.980 slope=0.954 intercept=0.764 Brier=0.0320
+
+libraries: pandas 2.2.3, numpy 2.1.3, sklearn 1.6.1
