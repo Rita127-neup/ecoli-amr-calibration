@@ -4,9 +4,13 @@ Code, derived data and outputs for the manuscript "Cross-Population Transfer and
 
 ## Reproducing the numbers
 
-Everything from feature construction onward can be rerun from `data/processed/qc_cohort_final_features.csv` (7,274 quality-controlled genomes, with the eight engineered features, phenotype, country, collection year, BioProject and MLST). `notebooks/south_asia_exclusion_check.py` is a one-cell example: paste it into a Google Colab cell and run it. It reads the CSV straight from this repository.
+`notebooks/02_reproduce_analysis.ipynb` recomputes the numbers in the manuscript (Tables 2 to 10, the reliability checks, and the South Asia BioProject sensitivity check) from one file, `data/processed/qc_cohort_final_features.csv` (7,274 quality-controlled genomes with the eight engineered features, phenotype, country, collection year, BioProject and MLST). It runs top to bottom in a few minutes and contains no hand-typed results.
 
-Environment: see `requirements.txt` (Python 3.13.15 on Google Colab; scikit-learn 1.6.1). Weakly identified coefficients such as qnrB can differ in the third decimal under other scikit-learn versions (0.712 under 1.6.1).
+To run it in Google Colab: File > Open notebook > GitHub, paste `Rita127-neup/ecoli-amr-calibration`, and open the notebook. The first cell installs the library versions used for the manuscript (scikit-learn 1.6.1, pandas 2.2.3, numpy 2.1.3); restart the session if Colab asks, then use Runtime > Run all.
+
+Building the feature file from the raw BV-BRC downloads is done by `notebooks/corrected_pipeline.py`.
+
+Environment: see `requirements.txt` (Python 3.13.15 on Google Colab). The saga solver stops at one of two nearby solutions that differ only in the weakly identified qnrB coefficient (0.707 or 0.712); the notebook sets `SEED = 4`, which reproduces the manuscript's values.
 
 ## Data availability note
 
@@ -19,6 +23,7 @@ Environment: see `requirements.txt` (Python 3.13.15 on Google Colab; scikit-lear
 - `results/table3_4_full_bootstrap_CIs.txt` reports bootstrap means with percentile intervals. The manuscript reports point estimates with the same intervals; `results/final_checks_output.txt` (block D5) recomputes the point estimates and intervals.
 - An earlier notebook cell for Figure 2 hard-coded the mean predicted probability of acquired-gene-only genomes (0.118, 0.098, 0.069). Those values were wrong and were replaced by values computed from the fitted model (0.134, 0.074, 0.041; `results/final_checks_output.txt`, block D1). `results/figure2_mechanism.png` was regenerated from the model.
 - `notebooks/01_cohort_assembly.ipynb` is the working log of the analysis, including superseded and failed cells. It is kept as a record and is not meant to be run top to bottom.
+- Where an older text file in `results/` differs from the manuscript, the manuscript and the output of `notebooks/02_reproduce_analysis.ipynb` are authoritative; some of the older files were written from the working log and contain numbers typed in by hand.
 
 ## Output map
 
