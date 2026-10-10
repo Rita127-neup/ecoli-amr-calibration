@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it as below."
+title: "ecoli-amr-calibration: code and derived data for cross-population transfer and post-hoc recalibration of genome-based ciprofloxacin resistance prediction in Escherichia coli"
+type: software
+version: "1.1.1"
+license: MIT
+repository-code: "https://github.com/Rita127-neup/ecoli-amr-calibration"
+authors:
+  - family-names: Neupane
+    given-names: Rita
+  - family-names: Neupane
+    given-names: Bishal
+  - family-names: Bhusal
+    given-names: Aryan
